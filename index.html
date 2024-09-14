@@ -76,6 +76,8 @@
     </div>
 
     <script>
+        let selectedButton = null; // Track the currently selected button
+
         function handleClick(buttonId) {
             let clickedButton = document.getElementById(buttonId);
 
@@ -86,6 +88,9 @@
 
             // Highlight the selected button
             highlightButton(clickedButton);
+
+            // Update selected button
+            selectedButton = clickedButton;
         }
 
         function toggleButtons() {
@@ -109,11 +114,9 @@
         }
 
         function submitResponse() {
-            let buttonA = document.getElementById('buttonA');
-            
-            // Check if the "Yes" button has "Yes" text
-            if (buttonA.textContent === 'Yes') {
-                alert("You submitted: Yes");
+            // Check if the selected button has "Yes" text
+            if (selectedButton && selectedButton.textContent === 'Yes') {
+                alert("You submitted: Yes 😅");
             } else {
                 alert("Please select 'Yes' to submit.");
             }
